@@ -7,7 +7,7 @@
           <img class="profile-user-img img-fluid img-circle" src="/dist/img/user4-128x128.jpg" alt="User profile picture">
         </div>
 
-        <h3 class="profile-username text-center">{{userfullName()}}</h3>
+        <h3 class="profile-username text-center ellipsis">{{userfullName()}}</h3>
 
         <p class="text-muted text-center">{{getrolesName()}}</p>
 

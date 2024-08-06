@@ -4,7 +4,7 @@
       <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
       <li class="nav-item">
-        <a href="#" {{ route('home') }} class="nav-link {{-- setMenuClass('home') --}}">
+        <a href="{{ route('home') }}" class="nav-link {{-- setMenuClass('home') --}}">
           <i class="nav-icon fas fa-home"></i>
             <p>
               Accueil
@@ -56,10 +56,22 @@
               <p>Roles et permissions</p>
             </a>
           </li>
+          <li class="nav-item ">
+            <a href="" class="nav-link">
+              <i class=" nav-icon far fa-circle"></i>
+              <p>Type de Mutuelle</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a href="" class="nav-link">
+              <i class=" nav-icon fas fa-list-ul"></i>
+              <p>Mutuelles</p>
+            </a>
+          </li>
         </ul>
       </li>
-      
-      <li class="nav-item">
+      @endcan
+      <!--<li class="nav-item">
           <a href="#" class="nav-link">
               <i class="nav-icon fas fa-cogs"></i>
               <p>
@@ -81,35 +93,11 @@
                   <i class="nav-icon fas fa-list-ul"></i>
                   <p>Mutuelles</p>
                   </a>
-              </li><!--
-              <li class="nav-item">
-                <a href=""
-                    class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>Bénéficiaires</p>
-                </a>
               </li>
-              <li class="nav-item">
-              <a href=""
-                  class="nav-link">
-              <i class="nav-icon fas fa-landmark"></i>
-              <p>Cotisations</p>
-              </a>
-              </li>
-              <li class="nav-item">
-                <a href=""
-                    class="nav-link">
-                <i class="nav-icon fa fa-credit-card"></i>
-                <p>Dépenses</p>
-                </a>
-              </li> -->
-              
           </ul>
-      </li>
-      @endcan
-
+      </li>-->
       @can("employe")
-      <li class="nav-header">LOCATION</li>
+      <li class="nav-header">Gestion des mutuelles</li>
       <li class="nav-item">
           <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-users"></i>
@@ -135,6 +123,6 @@
         </a>
       </li>
       @endcan
-      
+
     </ul>
 </nav>

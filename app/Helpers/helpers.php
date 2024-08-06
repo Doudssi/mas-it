@@ -14,6 +14,10 @@ function userFullName(){
     return auth()->user()->prenom . " " . auth()->user()->nom;
 }
 
+function serviceFullName(){
+    return auth()->user()->service;
+}
+
 function setMenuClass($route, $classe){
     $routeActuel = request()->route()->getName();
 
