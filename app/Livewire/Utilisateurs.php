@@ -16,9 +16,6 @@ class Utilisateurs extends Component
 {
     use WithPagination;
 
-    //Pour aller à nouveau utilisateur
-    public $isBtnAddClicked = false;
-
     protected $paginationTheme = "bootstrap";
 
     public $currentPage = PAGELIST;
@@ -56,6 +53,7 @@ class Utilisateurs extends Component
             return [
                 'editUser.nom' => 'required',
                 'editUser.prenom' => 'required',
+                'editUser.service' => 'required',
                 'editUser.email' => ['required', 'email', Rule::unique("users", "email")->ignore($this->editUser['id']) ] ,
                 'editUser.telephone1' => ['required', 'numeric', Rule::unique("users", "telephone1")->ignore($this->editUser['id']) ]  ,
                 'editUser.pieceIdentite' => ['required'],
@@ -67,6 +65,7 @@ class Utilisateurs extends Component
         return [
             'newUser.nom' => 'required',
             'newUser.prenom' => 'required',
+            'newUser.service' => 'required',
             'newUser.email' => 'required|email|unique:users,email',
             'newUser.telephone1' => 'required|numeric|unique:users,telephone1',
             'newUser.pieceIdentite' => 'required',
@@ -76,13 +75,9 @@ class Utilisateurs extends Component
     }
 
     public function goToAddUser(){
-        $this->isBtnAddClicked = true;;
+        $this->currentPage = PAGECREATEFORM;
     }
 
-    /*public function goToAddUser(){
-        $this->currentPage = PAGECREATEFORM;
-    }*/
-/*
     public function goToEditUser($id){
         $this->editUser = User::find($id)->toArray();
         $this->currentPage = PAGEEDITFORM;
@@ -201,5 +196,5 @@ class Utilisateurs extends Component
         User::destroy($id);
 
         $this->dispatchBrowserEvent("showSuccessMessage", ["message"=>"Utilisateur supprimé avec succès!"]);
-    }*/
+    }
 }

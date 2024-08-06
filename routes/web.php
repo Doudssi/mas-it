@@ -21,10 +21,6 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/habilitations/utilisateurs', [App\Http\Controllers\UserController::class, 'index'])
-->name('utilisateurs')->middleware("auth.admin");
-
-
 
 // Le groupe des routes relatives aux administrateurs uniquement 
 Route::group([
@@ -37,7 +33,7 @@ Route::group([
         'as' => 'habilitations.'
     ], function(){
 
-        Route::get("/utilisateurs", Utilisateurs::class)->name("users.index");
+        Route::get("/utilisateurs", [UserController::class, "index"])->name("users.index");
         //Route::get("/rolesetpermissions", [UserController::class, "index"])->name("rolespermissions.index");
         //
 
